@@ -2,7 +2,7 @@ const { ChatInputCommandInteraction, Client } = require("discord.js");
 const { getEvents, infoEvents } = require("../../../Functions/ctftime");
 
 module.exports = {
-  subCommand: "ctftime.current",
+  subCommand: "ctftime.upcoming",
   /**
    *
    * @param {ChatInputCommandInteraction} interaction
@@ -20,10 +20,10 @@ module.exports = {
       });
     }
 
+    await interaction.deferReply();
     for (let i = 0; i < event.length; i++) {
       const data = event[i];
       const eventInfo = await infoEvents(data.id);
-
       embedsSend.push({
         title: data.name,
         description: eventInfo.link,
@@ -43,7 +43,6 @@ module.exports = {
         },
       });
     }
-
-    return interaction.reply({ embeds: embedsSend });
+    return interaction.editReply({ embeds: embedsSend });
   },
 };

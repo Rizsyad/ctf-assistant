@@ -27,6 +27,7 @@ module.exports = {
     }
 
     const id = options.getString("id");
+    const day = options.getNumber("day") || 1;
     const data = await infoEvents(id);
 
     if (data.length === 0) {
@@ -107,9 +108,8 @@ module.exports = {
 
     const getUser = message.createReactionCollector({
       filter,
-      // time: 5000,
       dispose: true,
-      time: 1 * 24 * 60 * 60 * 1000,
+      time: day * 24 * 60 * 60 * 1000,
     });
 
     // attending events

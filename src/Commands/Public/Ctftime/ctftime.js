@@ -16,6 +16,11 @@ module.exports = {
         .setDescription("schedule CTFs")
         .addStringOption((option) =>
           option.setName("id").setDescription("id CTFs")
-        );
+        )
+        .addNumberOption((option) => {
+          option
+            .setName("day")
+            .setDescription("Set closed schedule, (default: 1 day)");
+        });
     }),
 };
