@@ -17,10 +17,10 @@ module.exports = {
         .addStringOption((option) =>
           option.setName("id").setDescription("id CTFs")
         )
-        .addNumberOption((option) => {
+        .addNumberOption((option) =>
           option
             .setName("day")
-            .setDescription("Set closed schedule, (default: 1 day)");
-        });
+            .setDescription("Set closed schedule, (default: 1 day)")
+        );
     }),
 };
