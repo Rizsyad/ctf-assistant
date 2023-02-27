@@ -1,0 +1,12 @@
+version: '3'
+services:
+  ctf-assistant:
+    build: .
+    restart: on-failure
+    networks:
+      default:
+      internal:
+networks:
+  default:
+  internal:
+    internal: true
